@@ -10,7 +10,7 @@
 
 ## 💠 Bu Repo Neden Oluşturuldu?
 
-Çalakalem, edebî şaheserler üretmek ya da kusursuz cümleler kurmak için oluşturulmadı. Burası; yazı kabiliyetimi geliştirmek ve özgürce karalayabilmek için oynadığım *dijital bir kum havuzu*, sözcüklerin fütursuzca arz-ı endam ettiği *bir eskiz defteri*.
+Çalakalem, edebî şaheserler üretmek ya da kusursuz cümleler kurmak için oluşturulmadı. Burası; yazı kabiliyetimi geliştirmek ve özgürce karalayabilmek için oynadığım *dijital bir kum havuzu*, sözcüklerin fütursuzca arz-ı endam ettiği bir *eskiz defteri*.
 
 ## 💠 Nasıl Sürdürülüyor?
 
@@ -18,6 +18,18 @@
 * **Süre:** 10 dakika. Süre dolunca kalem bırakılır.
 * **Kural:** Sadece yaz. Akışı bozmadan, takılmadan devam et.
 * **Amaç:** Kusursuzluk kaygısından arınmış bir şekilde yazım kabiliyetini geliştirmek.
+
+## 💠 Örnek Yazı
+
+> Tüm yazılara buradan göz atabilirsin: **[`Tüm Yazılar`](yazilar/)**
+
+> İlk yazıya buradan göz atabilirsin: **[`İlk Yazı`](yazilar/2026-07-03.md)**
+
+*(İlk yazı direkt olarak metin şeklinde buraya eklenecek.)*
+
+## 💠 Neden Herkese Açık?
+
+Bu repo kişisel bir alıştırma günlüğü olarak tutuluyor. Herkese açık olmasının sebebi, düzenliliği bir nevi dışarıdan da görünür kılmak ve yazma pratiğine sadık kalmayı kolaylaştırmak.
 
 ## 💠 Klasör Yapısı
 
@@ -28,16 +40,6 @@ yazilar/YYYY-MM-DD.md
 ```
 
 Örnek: `yazilar/2026-07-03.md`
-
-## 💠 Örnek Yazı
-
-> İlk yazıya buradan göz atabilirsin: [`yazilar/YYYY-MM-DD.md`](yazilar/YYYY-MM-DD.md)
-
-*(Bu bağlantıyı ilk yazın eklendiğinde gerçek dosya adıyla güncelle.)*
-
-## 💠 Neden Herkese Açık?
-
-Bu repo kişisel bir alıştırma günlüğü olarak tutuluyor. Herkese açık olmasının sebebi, düzenliliği bir nevi dışarıdan da görünür kılmak ve yazma pratiğine sadık kalmayı kolaylaştırmak.
 
 ---
 
