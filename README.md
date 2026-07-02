@@ -1,6 +1,6 @@
 # Çalakalem
 
-> *Kusursuzluk baskısından uzak, alelacele ve gelişigüzel. İlhamı beklemeden, kalemi durdurmadan: **her gün 10 dakikalık çalakalem yazı egzersizi.***
+> *Kusursuzluk baskısından uzak, alelacele ve gelişigüzel. İlhamı beklemeden, kalemi durdurmadan: **Her gün 10 dakikalık çalakalem yazı egzersizi.***
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Practice](https://img.shields.io/badge/Daily-10min-blue)
