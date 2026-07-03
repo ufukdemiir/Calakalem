@@ -4,7 +4,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Practice](https://img.shields.io/badge/Daily-10min-blue)
-![Streak](https://img.shields.io/badge/Streak-0%20g%C3%BCn-orange)
+![Streak](https://img.shields.io/badge/Streak-1%20g%C3%BCn-orange)
 
 ---
 
