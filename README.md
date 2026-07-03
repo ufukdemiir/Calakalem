@@ -22,6 +22,7 @@
 ## 💠 Örnek Yazı
 
 > Tüm yazılara buradan göz atabilirsin: **[`Tüm Yazılar`](yazilar/)**
+
 > İlk yazıya buradan göz atabilirsin: **[`İlk Yazı`](yazilar/2026-07-03.md)**
 
 *(İlk yazı direkt olarak metin şeklinde buraya eklenecek.)*
