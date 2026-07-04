@@ -1,12 +1,11 @@
-name: Streak Güncelle
+name: Seri Güncelle
 
 on:
   push:
     paths:
       - "yazilar/**"
   schedule:
-    # Her gün UTC 21:00 (TR saatiyle gece yarısına yakın) çalışır,
-    # gün bitmeden streak'in düşmesini engellemek için.
+    # Her gün UTC 21:00 (TR saatiyle gece yarısına yakın) çalışır
     - cron: "0 21 * * *"
   workflow_dispatch: {}
 
@@ -25,7 +24,7 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Streak'i hesapla ve README'yi güncelle
+      - name: Seriyi hesapla ve README'yi güncelle
         id: streak
         run: python3 scripts/update_streak.py
 
@@ -35,5 +34,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: streak güncellendi (${{ steps.streak.outputs.streak }} gün)"
+          git commit -m "chore: seri güncellendi (${{ steps.streak.outputs.streak }} gün)"
           git push
