@@ -4,7 +4,7 @@
 
 ![Durum](https://img.shields.io/badge/Durum-Aktif-brightgreen)
 ![Günlük Pratik](https://img.shields.io/badge/G%C3%BCnl%C3%BCk_Pratik-10_Dakika-blue)
-![Günlük Seri](https://img.shields.io/badge/Günlük_Seri-2_gün-orange)
+![Günlük Seri](https://img.shields.io/badge/Günlük_Seri-2%20g%C3%BCn-orange)
 
 ---
 
