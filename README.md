@@ -2,8 +2,8 @@
 
 > *Kusursuzluk baskısından uzak, alelacele ve gelişigüzel. İlhamı beklemeden, kalemi durdurmadan: **Her gün 10 dakikalık çalakalem yazı egzersizi.***
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![Practice](https://img.shields.io/badge/Daily-10min-blue)
+![Durum](https://img.shields.io/badge/Durum-Aktif-brightgreen)
+![Günlük Pratik](https://img.shields.io/badge/G%C3%BCnl%C3%BCk_Pratik-10_Dakika-blue)
 ![Streak](https://img.shields.io/badge/G%C3%BCnl%C3%BCk_Seri-2_g%C3%BCn-orange)
 
 ---
