@@ -2,12 +2,8 @@
 """
 yazilar/ klasöründeki YYYY-MM-DD.md dosyalarına bakarak,
 bugünden (veya son yazılan günden) geriye doğru kesintisiz
-gün sayısını (streak) hesaplar ve README.md'deki Streak
+gün sayısını (streak) hesaplar ve README.md'deki Günlük Seri
 badge'ini günceller.
-
-Kural: Bugün henüz yazı eklenmemişse, dünden geriye sayar
-(gün bitmeden "streak bozuldu" denmesin diye). Bugün dahil
-bir yazı varsa bugünden başlar.
 """
 
 import re
@@ -26,7 +22,6 @@ def gunluk_dosya_var_mi(gun: date) -> bool:
 
 def streak_hesapla() -> int:
     bugun = date.today()
-
     baslangic = bugun if gunluk_dosya_var_mi(bugun) else bugun - timedelta(days=1)
 
     streak = 0
@@ -45,33 +40,32 @@ def readme_guncelle(streak: int) -> bool:
 
     icerik = README_PATH.read_text(encoding="utf-8")
 
+    # Yeni badge yapısı
     etiket = urllib.parse.quote(f"{streak} gün")
-    yeni_badge = (
-        f"![Streak](https://img.shields.io/badge/Streak-{etiket}-orange)"
-    )
+    yeni_badge = f"![Günlük Seri](https://img.shields.io/badge/Günlük_Seri-{etiket}-orange)"
 
-    desen = r"!\[Streak\]\(https://img\.shields\.io/badge/Streak-[^)]*\)"
+    # Regex: Hem eski "Streak" etiketini hem de yeni "Günlük Seri" etiketini yakalar
+    desen = r"!\[(Streak|Günlük Seri)\]\(https://img\.shields\.io/badge/(Streak|Günlük_Seri)-[^)]*\)"
 
     if not re.search(desen, icerik):
-        print("README.md içinde Streak badge'i bulunamadı, çıkılıyor.")
+        print("README.md içinde uygun badge bulunamadı, çıkılıyor.")
         return False
 
     yeni_icerik = re.sub(desen, yeni_badge, icerik)
 
     if yeni_icerik == icerik:
-        print(f"Streak zaten güncel: {streak} gün.")
+        print(f"Seri zaten güncel: {streak} gün.")
         return False
 
     README_PATH.write_text(yeni_icerik, encoding="utf-8")
-    print(f"Streak güncellendi: {streak} gün.")
+    print(f"Seri güncellendi: {streak} gün.")
     return True
 
 
 def main() -> None:
     streak = streak_hesapla()
     degisti = readme_guncelle(streak)
-    # GitHub Actions'ın sonraki adımda commit atıp atmayacağını
-    # anlaması için bir çıktı değişkeni set ediyoruz.
+    
     github_output = sys.stdin.isatty() is False and __import__("os").environ.get("GITHUB_OUTPUT")
     if github_output:
         with open(github_output, "a", encoding="utf-8") as f:
