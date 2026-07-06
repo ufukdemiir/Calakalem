@@ -43,4 +43,4 @@ yazilar/YYYY-MM-DD.md
 
 ---
 
-*"Ruh, yazının icadından beri ölümsüz." **— Cemil Meriç***
+*"Kelime dediğin nedir ki? İnsan bir kez yazmaya görsün, o kelimeler gider, yerine koskoca bir dünya oturur." **— Yaşar Kemal***
