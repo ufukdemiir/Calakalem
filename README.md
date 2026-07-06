@@ -29,7 +29,7 @@
 
 *Bunlarla birlikte, tüm bu yaptıklarını anlayabilen müşterilerinin olduğunu ve bu ufak kurnazlıkları yakalayanların bir daha asla dükkanına adım atmayacağını bilmiyor. Kendi üzerinde çeşitli taktiksel çalışmalar yapılıp denek gibi kullanıldığını fark eden insanların bunu gerçekleştiren muhatabı ile tüm gönül bağlarını anında koparacağını bilmiyor. Günün sonunda, küçük hesapların uzun vadede çalışmayacağını ve dürüstlüğün aslında neden en büyük kurnazlık olduğunu henüz idrak edemiyor."*
 
-> Tüm yazılara buradan göz atabilirsin: **[`Üstteki Yazı`](yazilar/2026-07-07.md)**
+> Üstteki yazıya buradan göz atabilirsin: **[`Üstteki Yazı`](yazilar/2026-07-07.md)**
 
 ## 💠 Neden Herkese Açık?
 
