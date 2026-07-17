@@ -47,4 +47,25 @@ yazilar/YYYY-MM-DD.md
 
 ---
 
-*"Kelime dediğin nedir ki? İnsan bir kez yazmaya görsün, o kelimeler gider, yerine koskoca bir dünya oturur." **— Yaşar Kemal***
+*"Keleci bilen kişinin yüzünü ağ ede bir söz  
+Sözü pişirip diyenin işini sağ ede bir söz*    
+
+*Söz ola kese savaşı söz ola bitire başı  
+Söz ola ağulu aşı bal ile yağ ede bir söz*     
+
+*Kelecilerin pişirgil yaramazını şeşirgil  
+Sözün us ile düşürgil demegil çağede bir söz*  
+
+*Gel ahî ey şehriyâri sözümüzü dinle bâri  
+Hezâr gevher ü dînârı kara toprağ ede bir söz*  
+
+*Kişi bile söz demini demeye sözün kemini  
+Bu cihân cehennemini sekiz uçmağ ede bir söz*  
+
+*Yürü yürü yolun ile gâfil olma bilin ile  
+Key sakın key dilin ile cânına dâğ ede bir söz*  
+
+*Yûnus imdi söz yatından söyle sözü gâyetinden  
+Key sakın o şâh katından seni ırağ ede bir söz"*
+
+**— Yunus Emre**
