@@ -14,7 +14,7 @@
 
     <!-- Site Navigasyonu -->
     <div style="display: flex; justify-content: center; gap: 20px;">
-      <a href="yazilar/" style="display: inline-block; background: #111; color: #fff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Zaman Akışını Oku</a>
+      <a href="yazilar/" style="display: inline-block; background: #111; color: #fff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Akışta Oku</a>
       <a href="arsiv/" style="display: inline-block; background: transparent; color: #111; border: 1px solid #111; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">Arşive Göz At</a>
     </div>
   </header>
