@@ -1,4 +1,18 @@
-# Çalakalem
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Çalakalem | Yazılar</title>
+</head>
+<body>
+
+<div style="max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem 3rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111;">
+
+<h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem;">Çalakalem</h1>
 
 <p style="color: #555; font-size: 1.15rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 3rem; line-height: 1.6;">
   Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış serbest metinler.
@@ -50,6 +64,8 @@
 
 <!-- Minimalist Sayfalama Kontrolleri (Ortalandı) -->
 <div id="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+</div>
+
 </div>
 
 <script>
@@ -128,6 +144,10 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <style>
+  body { margin: 0; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   .post-content p { margin-bottom: 1.5rem; }
 </style>
+
+</body>
+</html>
