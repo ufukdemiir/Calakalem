@@ -48,8 +48,8 @@
 
 </div>
 
-<!-- Minimalist Sayfalama Kontrolleri -->
-<div id="pagination-controls" style="display: flex; justify-content: flex-start; align-items: center; gap: 12px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<!-- Minimalist Sayfalama Kontrolleri (Ortalandı) -->
+<div id="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
 </div>
 
 <script>
