@@ -53,6 +53,10 @@ yazilar/YYYY-MM-DD.md
 
 ---
 
+📌 **Not:** Çalakalem, benim kişisel dijital eskiz defterimdir. Bu nedenle projeye kod veya içerik seviyesinde harici katkı (Pull Request) kabul edilmemektedir. Ancak fikirlerinizi paylaşmak, sohbet etmek veya kendi ürettiklerinizi göstermek isterseniz [**Discussions (Tartışmalar)**](https://github.com/ufukdemiir/Calakalem/discussions) alanımıza her zaman beklerim. 🙌
+
+---
+
 *"Keleci bilen kişinin yüzünü ağ ede bir söz  
 Sözü pişirip diyenin işini sağ ede bir söz*    
 
