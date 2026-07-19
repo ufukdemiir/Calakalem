@@ -60,12 +60,21 @@
 
   <footer style="text-align: center; margin-bottom: 3rem;">
     <div style="font-family: 'Georgia', serif; font-size: 1.1rem; line-height: 2; color: #555; font-style: italic;">
-      <p>
-        "Keleci bilen kişinin yüzünü ağ ede bir söz<br>
+<p>
+        Keleci bilen kişinin yüzünü ağ ede bir söz<br>
         Sözü pişirip diyenin işini sağ ede bir söz<br><br>
-        ...<br><br>
+        Söz ola kese savaşı söz ola bitire başı<br>
+        Söz ola ağulu aşı bal ile yağ ede bir söz<br><br>
+        Kelecilerin pişirgil yaramazını şeşirgil<br>
+        Sözün us ile düşürgil demegil çağede bir söz<br><br>
+        Gel ahî ey şehriyâri sözümüzü dinle bâri<br>
+        Hezâr gevher ü dînârı kara toprağ ede bir söz<br><br>
+        Kişi bile söz demini demeye sözün kemini<br>
+        Bu cihân cehennemini sekiz uçmağ ede bir söz<br><br>
+        Yürü yürü yolun ile gâfil olma bilin ile<br>
+        Key sakın key dilin ile cânına dâğ ede bir söz<br><br>
         Yûnus imdi söz yatından söyle sözü gâyetinden<br>
-        Key sakın o şâh katından seni ırağ ede bir söz"
+        Key sakın o şâh katından seni ırağ ede bir söz
       </p>
     </div>
     <div style="margin-top: 2rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; font-size: 0.95rem; color: #111;">
