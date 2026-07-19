@@ -8,7 +8,7 @@
 
 ---
 
-## 💠 Bu Repo Neden Oluşturuldu?
+## 💠 Bu Depo Neden Oluşturuldu?
 
 **Çalakalem**, edebî şaheserler üretmek ya da kusursuz cümleler kurmak için oluşturulmadı. Burası; yazı kabiliyetimi geliştirmek ve özgürce karalayabilmek için oynadığım *dijital bir kum havuzu*, sözcüklerin fütursuzca arz-ı endam ettiği bir *eskiz defteri*.
 
