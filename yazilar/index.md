@@ -11,7 +11,10 @@ layout: null
 
 <div style="max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem 3rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111;">
 
-<h1 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem;">Çalakalem</h1>
+  <!-- Kalın Başlık -->
+  <h1 style="font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; margin-top: 0; margin-bottom: 1rem;">
+    Çalakalem
+  </h1>
 
 <p style="color: #555; font-size: 1.15rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 3rem; line-height: 1.6;">
   Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış serbest metinler.
