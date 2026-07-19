@@ -48,7 +48,7 @@ layout: null
     </p>
   </section>
 
-  <section style="background: #fafafa; padding: 2.5rem; border-radius: 8px; border: 1px solid #eaeaea; margin-bottom: 4rem;">
+  <section style="background: #fafafa; padding: 2.5rem; border-radius: 8px; border: 1px solid #eaeaea; margin-bottom: 3rem;">
     <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 1rem;">Örnek Kesit</div>
     <div style="font-family: 'Georgia', serif; font-size: 1.15rem; line-height: 1.9; color: #222; text-align: justify; font-style: italic;">
       <p>"Müşterileriyle gerçekten samimi ve dostane bir sohbet mi geliştirmeye çalışıyor yoksa lokantaya ayakları alışsın diye profesyonel ve soğuk bir müşteri ilişkileri yönetimi faaliyeti mi sürdürüyor, belli değil. İşin kötüsü, niyetinin gerçekte ne olduğu konusunda kendi de kararsız.</p>
@@ -59,11 +59,18 @@ layout: null
     </div>
   </section>
 
+  <!-- Katkı Sağlama ve İletişim Notu -->
+  <section style="margin-bottom: 4rem; padding: 0 1rem;">
+    <p style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 0.95rem; line-height: 1.6; color: #555;">
+      📌 <strong>Not:</strong> Çalakalem, benim kişisel dijital eskiz defterimdir. Bu nedenle projeye kod veya içerik seviyesinde harici katkı (Pull Request) kabul edilmemektedir. Ancak fikirlerinizi paylaşmak, sohbet etmek veya kendi ürettiklerinizi göstermek isterseniz <a href="https://github.com/ufukdemiir/Calakalem/discussions" style="color: #111; font-weight: 600; text-decoration: underline;">Discussions (Tartışmalar)</a> alanımıza her zaman beklerim. 🙌
+    </p>
+  </section>
+
   <hr style="border: none; border-top: 1px solid #eee; margin: 4rem 0;">
 
   <footer style="text-align: center; margin-bottom: 3rem;">
     <div style="font-family: 'Georgia', serif; font-size: 1.1rem; line-height: 2; color: #555; font-style: italic;">
-<p>
+      <p>
         Keleci bilen kişinin yüzünü ağ ede bir söz<br>
         Sözü pişirip diyenin işini sağ ede bir söz<br><br>
         Söz ola kese savaşı söz ola bitire başı<br>
