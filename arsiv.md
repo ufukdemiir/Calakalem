@@ -1,10 +1,15 @@
 # 📚 Çalakalem Arşivi
 
+<div style="margin: 20px 0 30px 0;">
+  <a href="../yazilar/" style="display: inline-flex; align-items: center; background-color: #f6f8fa; color: #2ea44f; border: 1px solid #d0d7de; padding: 10px 20px; border-radius: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; text-decoration: none; box-shadow: 0 1px 0 rgba(27,31,36,0.04);">
+    ✍️ Yazıları İçerikleriyle Oku (Zaman Akışı) →
+  </a>
+</div>
+
 Yazılmış tüm metinlerin zaman dilimlerine göre düzenlenmiş istatistiksel arşivi. Filtrelemek istediğiniz yıl veya ayın üzerine tıklayabilirsiniz.
 
 <div id="archive-app" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; margin-top: 30px;">
   
-  <!-- Ham Veri Alanı (Jekyll arka planda burayı dolduracak, JS okuyacak) -->
   <div id="raw-data" style="display:none;">
     {% assign sorted_files = site.static_files | sort: 'path' | reverse %}
     {% for file in sorted_files %}
@@ -16,7 +21,6 @@ Yazılmış tüm metinlerin zaman dilimlerine göre düzenlenmiş istatistiksel 
     {% endfor %}
   </div>
 
-  <!-- Sol Menü: Filtreler ve Sayılar -->
   <div style="display: flex; gap: 40px; align-items: flex-start;">
     
     <div style="flex: 1; min-width: 220px; background: #f6f8fa; padding: 20px; border-radius: 6px; border: 1px solid #d0d7de;">
@@ -31,7 +35,6 @@ Yazılmış tüm metinlerin zaman dilimlerine göre düzenlenmiş istatistiksel 
       <div id="filter-tree"></div>
     </div>
 
-    <!-- Sağ Alan: Filtrelenmiş Yazı Linkleri -->
     <div style="flex: 2;">
       <h3 id="current-filter-title" style="margin-top:0; color:#24292e;">Tüm Yazılar</h3>
       <ul id="filtered-posts-list" style="list-style-type: none; padding-left: 0; line-height: 1.8;">
@@ -48,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const posts = [];
   const tree = {};
 
-  // Veriyi Oku ve Ağaç Yapısını Oluştur
   spans.forEach(span => {
     const year = span.getAttribute("data-year");
     const month = span.getAttribute("data-month");
@@ -67,13 +69,11 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("total-count").innerText = posts.length;
   window.allPosts = posts;
 
-  // Ay İsimleri Sözlüğü
   const monthNames = {
     "01": "Ocak", "02": "Şubat", "03": "Mart", "04": "Nisan", "05": "Mayıs", "06": "Haziran",
     "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık"
   };
 
-  // Filtre Menüsünü Arayüze Çiz
   let treeHTML = "";
   const sortedYears = Object.keys(tree).sort().reverse();
   
@@ -92,8 +92,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
   document.getElementById("filter-tree").innerHTML = treeHTML;
-
-  // İlk açılışta tümünü göster
   filterPosts('all', 'all');
 });
 
@@ -106,19 +104,16 @@ function filterPosts(year, month) {
     "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık"
   };
 
-  // Başlığı Güncelle
   if (year === 'all') titleContainer.innerText = "Tüm Yazılar";
   else if (month === 'all') titleContainer.innerText = `${year} Yılı Yazıları`;
   else titleContainer.innerText = `${monthNames[month]} ${year} Yazıları`;
 
-  // Filtrele
   const filtered = window.allPosts.filter(post => {
     const yearMatch = (year === 'all' || post.year === year);
     const monthMatch = (month === 'all' || post.month === month);
     return yearMatch && monthMatch;
   });
 
-  // Ekrana Bas
   if (filtered.length === 0) {
     listContainer.innerHTML = "<li>Bu dönemde yazılmış yazı bulunamadı.</li>";
     return;
