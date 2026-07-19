@@ -2,9 +2,15 @@
 
 > *Kusursuzluk baskısından uzak, alelacele ve gelişigüzel. İlhamı beklemeden, kalemi durdurmadan: **Her gün 10 dakikalık çalakalem yazı egzersizi.***
 
-![Durum](https://img.shields.io/badge/Durum-Aktif-brightgreen)
-![Günlük Pratik](https://img.shields.io/badge/G%C3%BCnl%C3%BCk_Pratik-10_Dakika-blue)
-![Günlük Seri](https://img.shields.io/badge/Günlük_Seri-17%20g%C3%BCn-orange)
+<p align="left">
+  <img src="https://img.shields.io/badge/Durum-Aktif-brightgreen?style=flat-square" alt="Durum">
+  <img src="https://img.shields.io/badge/G%C3%BCnl%C3%BCk_Pratik-10_Dakika-blue?style=flat-square" alt="Günlük Pratik">
+  <img src="https://img.shields.io/badge/Günlük_Seri-17%20g%C3%BCn-orange?style=flat-square" alt="Günlük Seri">
+  &nbsp;<img src="https://img.shields.io/badge/%20-lightgrey?style=flat-square" alt="" width="3" height="20">&nbsp;
+  <a href="https://ufukdemiir.github.io/Calakalem/"><img src="https://img.shields.io/badge/Ana_Sayfa-111111?style=flat-square" alt="Ana Sayfa"></a>
+  <a href="https://ufukdemiir.github.io/Calakalem/yazilar/"><img src="https://img.shields.io/badge/Akışta_Oku-111111?style=flat-square" alt="Akışta Oku"></a>
+  <a href="https://ufukdemiir.github.io/Calakalem/arsiv/"><img src="https://img.shields.io/badge/Arşive_Git-111111?style=flat-square" alt="Arşive Git"></a>
+</p>
 
 ---
 
