@@ -2,7 +2,7 @@
 layout: null
 permalink: /arsiv/
 ---
- 
+
 <!-- Ana kapsayıcı (index.md ile birebir aynı genişlik, ortalama ve font yapısı) -->
 <div style="max-width: 700px; margin: 0 auto; padding: 2rem 20px 4rem 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111;">
 
