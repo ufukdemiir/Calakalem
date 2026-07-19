@@ -2,7 +2,11 @@
 
 Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış tüm serbest metinler.
 
-> 📂 Tüm yazıları yıllara ve aylara göre filtrelenmiş olarak görmek ve istatistikleri incelemek için **[📚 ÇALAKALEM ARŞİVİ](../arsiv/)** sayfasına göz atabilirsiniz.
+<div style="margin: 20px 0 30px 0;">
+  <a href="../arsiv/" style="display: inline-flex; align-items: center; background-color: #f6f8fa; color: #0969da; border: 1px solid #d0d7de; padding: 10px 20px; border-radius: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-weight: 600; text-decoration: none; box-shadow: 0 1px 0 rgba(27,31,36,0.04);">
+    📚 Yıllara ve Aylara Göre Filtreli Arşive Git →
+  </a>
+</div>
 
 <div class="timeline" style="margin-top: 30px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
   
