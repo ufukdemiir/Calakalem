@@ -15,7 +15,7 @@
 ## 💠 Nasıl Sürdürülüyor?
 
 * **Sıklık:** Her gün yaz; her gün, her gün...
-* **Süre:** 10 dakika. Süre dolunca kalem bırakılır.
+* **Süre:** En az 10 dakika. Vaktin varsa daha fazla.
 * **Kural:** Sadece yaz. Akışı bozmadan, takılmadan devam et.
 * **Amaç:** Kusursuzluk kaygısından arınmış bir şekilde yazım kabiliyetini geliştirmek.
 
