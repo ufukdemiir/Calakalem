@@ -30,7 +30,7 @@ permalink: /arsiv/
 
   <div style="display: flex; gap: 60px; align-items: flex-start; flex-wrap: wrap;">
     
-    <!-- Temiz Tipografik Sol Menü -->
+    <!-- Açılır Kapanır Sol Menü -->
     <div style="flex: 1; min-width: 200px;">
       <h3 style="margin-top:0; font-size:0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #888; border-bottom: 1px solid #eee; padding-bottom:12px; margin-bottom: 20px;">Dizin</h3>
       <ul style="list-style: none; padding: 0; margin: 0;">
@@ -58,7 +58,6 @@ permalink: /arsiv/
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Favicon Ekleme
   const favicon = document.createElement('link');
   favicon.rel = 'icon';
   favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
@@ -94,10 +93,14 @@ document.addEventListener("DOMContentLoaded", function() {
   let treeHTML = "";
   const sortedYears = Object.keys(tree).sort().reverse();
   
-  sortedYears.forEach(year => {
+  sortedYears.forEach((year, index) => {
+    const isFirst = index === 0;
+    const displayStyle = isFirst ? 'block' : 'none';
+    const icon = isFirst ? '▾' : '▸';
+
     treeHTML += `<div style="margin-top: 20px;">`;
-    treeHTML += `<button onclick="filterPosts('${year}', 'all')" style="background:none; border:none; color:#111; cursor:pointer; font-weight:700; font-size:1.1rem; padding:0; text-align:left; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">${year} <span style="color:#aaa; font-weight:400; font-size:0.9rem; margin-left: 4px;">(${tree[year].count})</span></button>`;
-    treeHTML += `<ul style="list-style:none; padding-left:12px; border-left: 1px solid #eee; margin:12px 0 0 4px;">`;
+    treeHTML += `<button onclick="toggleYear('${year}')" style="background:none; border:none; color:#111; cursor:pointer; font-weight:700; font-size:1.1rem; padding:0; text-align:left; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'"><span id="icon-${year}" style="display:inline-block; width:18px; font-size:0.9em; color:#888;">${icon}</span>${year} <span style="color:#aaa; font-weight:400; font-size:0.9rem; margin-left: 4px;">(${tree[year].count})</span></button>`;
+    treeHTML += `<ul id="months-${year}" style="list-style:none; padding-left:18px; border-left: 1px solid #eee; margin:12px 0 0 7px; display: ${displayStyle};">`;
     
     const sortedMonths = Object.keys(tree[year].months).sort().reverse();
     sortedMonths.forEach(month => {
@@ -112,7 +115,21 @@ document.addEventListener("DOMContentLoaded", function() {
   filterPosts('all', 'all');
 });
 
-function filterPosts(year, month) {
+// Accordion (Açılır Kapanır) Fonksiyonu
+window.toggleYear = function(year) {
+  const ul = document.getElementById('months-' + year);
+  const icon = document.getElementById('icon-' + year);
+  if (ul.style.display === 'none') {
+    ul.style.display = 'block';
+    icon.innerText = '▾';
+  } else {
+    ul.style.display = 'none';
+    icon.innerText = '▸';
+  }
+  filterPosts(year, 'all');
+};
+
+window.filterPosts = function(year, month) {
   const listContainer = document.getElementById("filtered-posts-list");
   const titleContainer = document.getElementById("current-filter-title");
   
@@ -144,5 +161,5 @@ function filterPosts(year, month) {
       </a>
     </li>
   `).join("");
-}
+};
 </script>
