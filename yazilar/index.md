@@ -1,42 +1,44 @@
-# ✍️ Çalakalem Zaman Akışı
+# Çalakalem
 
-<p style="color: #6e7781; font-size: 1.1em; margin-bottom: 2.5rem; line-height: 1.6;">
-  Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış tüm serbest metinler.
+<p style="color: #555; font-size: 1.15rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 3rem; line-height: 1.6;">
+  Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış serbest metinler.
 </p>
 
-<!-- Şık Buton -->
-<div style="margin-bottom: 4rem;">
-  <a href="../arsiv/" style="display: inline-flex; align-items: center; background-color: #ffffff; color: #24292f; border: 1px solid #d0d7de; padding: 10px 20px; border-radius: 8px; font-size: 0.95em; font-weight: 600; text-decoration: none; box-shadow: 0 1px 3px rgba(27,31,36,0.04); transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='#f6f8fa'" onmouseout="this.style.backgroundColor='#ffffff'">
-    <span style="margin-right: 8px;">📚</span> Yıllara ve Aylara Göre Filtreli Arşive Git
+<!-- Şık Navigasyon Butonu -->
+<div style="margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <a href="../arsiv/" style="display: inline-block; color: #111; border-bottom: 1px solid #111; padding-bottom: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+    Arşivi Görüntüle →
   </a>
 </div>
 
-<div id="posts-wrapper" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+<div id="posts-wrapper">
   
   {% assign sorted_files = site.static_files | sort: 'path' | reverse %}
   {% for file in sorted_files %}
     {% if file.path contains "yazilar/" and file.extname == ".md" and file.name != "index.md" %}
       {% assign date_str = file.name | remove: ".md" %}
       
-      <!-- Yazı Kartı -->
-      <article class="post-item" style="display: none; margin-bottom: 4rem; padding-bottom: 3rem; border-bottom: 1px solid #e1e4e8;">
+      <!-- Zarif Yazı Kartı -->
+      <article class="post-item" style="display: none; margin-bottom: 6rem;">
         
-        <header style="margin-bottom: 1.5rem;">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.95em;">
-            <span style="color: #57606a; font-weight: 500;">✍️ Ufuk Demir</span>
-            <span style="color: #d0d7de;">•</span>
-            <span style="color: #6e7781;">{{ date_str }}</span>
+        <header style="margin-bottom: 2rem; text-align: center;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">
+            Ufuk Demir
           </div>
-          <h2 style="margin: 0; font-size: 1.8em; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em;">
-            <a href="{{ site.baseurl }}{{ file.path }}" style="text-decoration: none; color: #1F2328;" onmouseover="this.style.color='#0969da'" onmouseout="this.style.color='#1F2328'">
+          <h2 style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em;">
+            <a href="{{ site.baseurl }}{{ file.path }}" style="text-decoration: none; color: #111; transition: color 0.2s ease;" onmouseover="this.style.color='#555'" onmouseout="this.style.color='#111'">
               {{ date_str }}
             </a>
           </h2>
         </header>
 
-        <div class="post-content" style="color: #24292f; line-height: 1.8; font-size: 1.1em;">
+        <div class="post-content" style="color: #222; line-height: 1.9; font-size: 1.15rem; font-family: 'Georgia', serif; text-align: justify;">
           {% capture file_content %}{% include_relative {{ file.name }} %}{% endcapture %}
           {{ file_content | markdownify }}
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+          <span style="display: inline-block; width: 40px; height: 1px; background-color: #ddd;"></span>
         </div>
         
       </article>
@@ -46,15 +48,21 @@
 
 </div>
 
-<!-- Sayfalama (Pagination) Kontrolleri -->
-<div id="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-  <!-- JS ile sayfa butonları buraya eklenecek -->
+<!-- Minimalist Sayfalama Kontrolleri -->
+<div id="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // Favicon Ekleme
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
+  document.head.appendChild(favicon);
+
+  // Sayfalama Mantığı
   const posts = document.querySelectorAll('.post-item');
-  const postsPerPage = 10; // Her sayfada görünecek yazı sayısı
+  const postsPerPage = 10;
   const totalPages = Math.ceil(posts.length / postsPerPage);
   let currentPage = 1;
 
@@ -63,10 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
       post.style.display = 'none';
       if (index >= (currentPage - 1) * postsPerPage && index < currentPage * postsPerPage) {
         post.style.display = 'block';
+        post.style.animation = 'fadeIn 0.5s ease';
       }
     });
     renderPagination();
-    // Sayfa değiştiğinde yumuşakça en üste kaydırır
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -75,17 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
     btn.innerHTML = text;
     btn.disabled = disabled;
     
-    let baseStyle = "min-width: 36px; height: 36px; padding: 0 10px; border-radius: 6px; font-size: 0.95em; font-weight: 500; cursor: pointer; transition: all 0.2s ease; border: 1px solid ";
+    let baseStyle = "background: none; border: none; font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; padding: 5px 10px; ";
     
     if (active) {
-      btn.style = baseStyle + "#d0d7de; background-color: #f6f8fa; color: #24292f;";
+      btn.style = baseStyle + "color: #111; border-bottom: 2px solid #111;";
     } else if (disabled) {
-      btn.style = baseStyle + "transparent; background-color: transparent; color: #8c959f; cursor: default;";
-      btn.style.opacity = "0.5";
+      btn.style = baseStyle + "color: #ccc; cursor: default;";
     } else {
-      btn.style = baseStyle + "transparent; background-color: transparent; color: #0969da;";
-      btn.onmouseover = () => { btn.style.backgroundColor = '#f3f4f6'; };
-      btn.onmouseout = () => { btn.style.backgroundColor = 'transparent'; };
+      btn.style = baseStyle + "color: #888;";
+      btn.onmouseover = () => { btn.style.color = '#111'; };
+      btn.onmouseout = () => { btn.style.color = '#888'; };
     }
 
     if (!disabled && !active) {
@@ -100,14 +107,11 @@ document.addEventListener("DOMContentLoaded", function() {
   function renderPagination() {
     const container = document.getElementById('pagination-controls');
     container.innerHTML = '';
+    if (totalPages <= 1) return;
 
-    if (totalPages <= 1) return; // Tek sayfaysa gizle
-
-    // << ve <
     container.appendChild(createButton('«', 1, currentPage === 1));
     container.appendChild(createButton('‹', currentPage - 1, currentPage === 1));
 
-    // Numaralar
     let startPage = Math.max(1, currentPage - 2);
     let endPage = Math.min(totalPages, currentPage + 2);
 
@@ -118,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function() {
       container.appendChild(createButton(i, i, false, i === currentPage));
     }
 
-    // > ve >>
     container.appendChild(createButton('›', currentPage + 1, currentPage === totalPages));
     container.appendChild(createButton('»', totalPages, currentPage === totalPages));
   }
@@ -126,3 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
   renderPosts();
 });
 </script>
+<style>
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .post-content p { margin-bottom: 1.5rem; }
+</style>
