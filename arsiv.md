@@ -1,3 +1,7 @@
+---
+permalink: /arsiv/
+---
+
 # 📚 Çalakalem Arşivi
 
 <div style="margin: 20px 0 30px 0;">
