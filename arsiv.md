@@ -1,4 +1,5 @@
 ---
+layout: null
 permalink: /arsiv/
 ---
 
@@ -115,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function() {
   filterPosts('all', 'all');
 });
 
-// Accordion (Açılır Kapanır) Fonksiyonu
 window.toggleYear = function(year) {
   const ul = document.getElementById('months-' + year);
   const icon = document.getElementById('icon-' + year);
