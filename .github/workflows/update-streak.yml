@@ -1,5 +1,4 @@
 name: Seri Güncelle
-
 on:
   push:
     paths:
@@ -8,31 +7,26 @@ on:
     # Her gün UTC 21:00 (TR saatiyle gece yarısına yakın) çalışır
     - cron: "0 21 * * *"
   workflow_dispatch: {}
-
 permissions:
   contents: write
-
 jobs:
   update-streak:
     runs-on: ubuntu-latest
     steps:
       - name: Repo'yu çek
         uses: actions/checkout@v4
-
       - name: Python kur
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-
-      - name: Seriyi hesapla ve README'yi güncelle
+      - name: Seriyi hesapla ve dosyaları güncelle
         id: streak
         run: python3 scripts/update_streak.py
-
       - name: Değişikliği commit'le
         if: steps.streak.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add README.md index.md
           git commit -m "chore: seri güncellendi (${{ steps.streak.outputs.streak }} gün)"
           git push
