@@ -1,7 +1,3 @@
----
-layout: null
----
-
 <div style="max-width: 700px; margin: 0 auto; padding-top: 2rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111;">
 
   <header style="text-align: center; margin-bottom: 4rem;">
