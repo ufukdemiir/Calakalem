@@ -1,7 +1,13 @@
 ---
 layout: null
 permalink: /arsiv/
+title: Çalakalem | Arşiv
 ---
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
 <!-- Ana kapsayıcı (index.md ile birebir aynı genişlik, ortalama ve font yapısı) -->
 <div style="max-width: 700px; margin: 0 auto; padding: 2rem 20px 4rem 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111;">
