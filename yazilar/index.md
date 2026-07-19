@@ -1,24 +1,39 @@
-# ✍️ Tüm Çalakalem Yazıları
+# ✍️ Çalakalem Zaman Akışı
 
-Bu zaman akışında, bugüne kadar yazılmış tüm serbest metinleri en yeniden en eskiye doğru bulabilirsiniz.
+Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış tüm serbest metinler.
 
 <div class="timeline" style="margin-top: 30px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
-  <ul style="list-style-type: none; padding-left: 0;">
-    {% assign sorted_files = site.static_files | sort: 'path' | reverse %}
-    {% for file in sorted_files %}
-      {% if file.path contains "yazilar/" and file.extname == ".md" and file.name != "index.md" %}
-        {% assign date_str = file.name | remove: ".md" %}
-        <li style="margin-bottom: 25px; border-left: 4px solid #2ea44f; padding-left: 20px; position: relative;">
-          <div style="color: #57606a; font-size: 0.85em; font-weight: 600; margin-bottom: 4px;">
+  
+  {% assign sorted_files = site.static_files | sort: 'path' | reverse %}
+  {% for file in sorted_files %}
+    {% if file.path contains "yazilar/" and file.extname == ".md" and file.name != "index.md" %}
+      {% assign date_str = file.name | remove: ".md" %}
+      
+      <!-- Her Bir Günün Yazı Kartı -->
+      <article style="margin-bottom: 50px; border-left: 4px solid #2ea44f; padding-left: 25px; position: relative;">
+        
+        <!-- Zaman Damgası -->
+        <header style="margin-bottom: 15px;">
+          <span style="color: #57606a; font-size: 0.9em; font-weight: 600; display: block; margin-bottom: 5px;">
             📅 {{ date_str }}
-          </div>
-          <h3 style="margin: 0; font-size: 1.15em; line-height: 1.4;">
-            <a href="{{ site.baseurl }}{{ file.path }}" style="text-decoration: none; color: #0969da; font-weight: 600;">
-              Çalakalem Egzersizi: {{ date_str }}
+          </span>
+          <h2 style="margin: 0; font-size: 1.4em; line-height: 1.3;">
+            <a href="{{ site.baseurl }}{{ file.path }}" style="text-decoration: none; color: #0969da; font-weight: 700;">
+              Günün Karalaması
             </a>
-          </h3>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+          </h2>
+        </header>
+
+        <!-- Yazı İçeriği (Markdown formatını koruyarak çeker) -->
+        <div class="post-content" style="color: #24292e; line-height: 1.6; font-size: 1.1em; text-align: justify;">
+          {% capture file_content %}{% include_relative {{ file.name }} %}{% endcapture %}
+          {{ file_content | markdownify }}
+        </div>
+
+        <hr style="height: 1px; background-color: #e1e4e8; border: none; margin-top: 30px; margin-bottom: 0;">
+      </article>
+
+    {% endif %}
+  {% endfor %}
+
 </div>
