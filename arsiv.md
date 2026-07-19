@@ -155,7 +155,7 @@ window.filterPosts = function(year, month) {
 
   listContainer.innerHTML = filtered.map(post => `
     <li style="margin-bottom: 20px; display: flex; align-items: baseline; gap: 20px;">
-      <span style="color: #aaa; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; width: 100px; flex-shrink: 0;">Ufuk Demir</span>
+      <a href="https://github.com/ufukdemiir" target="_blank" style="text-decoration: none; color: #aaa; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; width: 100px; flex-shrink: 0; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">UFUK DEMİR</a>
       <a href="${post.url}" style="text-decoration: none; color: #111; font-weight: 600; font-size: 1.15rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">
         ${post.date}
       </a>
