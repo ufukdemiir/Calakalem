@@ -3,26 +3,26 @@ layout: null
 permalink: /arsiv/
 ---
 
-<!-- Ana kapsayıcı (Sayfayı merkeze alır ve genişliği korur) -->
-<div style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
+<!-- Ana kapsayıcı (index.md ile birebir aynı genişlik, ortalama ve font yapısı) -->
+<div style="max-width: 700px; margin: 0 auto; padding: 2rem 20px 4rem 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #111;">
 
   <!-- Kalın Başlık -->
-  <h1 style="font-weight: 800; font-size: 2.8rem; letter-spacing: -0.05em; color: #111; margin-top: 0; margin-bottom: 0.5rem;">
+  <h1 style="font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; margin-top: 0; margin-bottom: 1rem;">
     Arşiv
   </h1>
 
-  <p style="color: #555; font-size: 1.15rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 3rem; line-height: 1.6;">
+  <p style="color: #555; font-size: 1.25rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 3rem; line-height: 1.6;">
     Yazılmış tüm metinlerin zaman dilimlerine göre düzenlenmiş dizini.
   </p>
 
   <!-- Şık Navigasyon Butonu -->
-  <div style="margin-bottom: 4rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <div style="margin-bottom: 4rem;">
     <a href="../yazilar/" style="display: inline-block; color: #111; border-bottom: 1px solid #111; padding-bottom: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
       ← Akışa Dön
     </a>
   </div>
 
-  <div id="archive-app" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <div id="archive-app">
     
     <!-- Veri Kaynağı (Gizli) -->
     <div id="raw-data" style="display:none;">
@@ -36,10 +36,10 @@ permalink: /arsiv/
       {% endfor %}
     </div>
 
-    <div style="display: flex; gap: 60px; align-items: flex-start; flex-wrap: wrap;">
+    <div style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
       
       <!-- Açılır Kapanır Sol Menü -->
-      <div style="flex: 1; min-width: 200px;">
+      <div style="flex: 1; min-width: 180px;">
         <h3 style="margin-top:0; font-size:0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #888; border-bottom: 1px solid #eee; padding-bottom:12px; margin-bottom: 20px;">Dizin</h3>
         <ul style="list-style: none; padding: 0; margin: 0;">
           <li style="margin-bottom: 24px;">
@@ -52,7 +52,7 @@ permalink: /arsiv/
       </div>
 
       <!-- Zarif Liste Görünümü & Arama -->
-      <div style="flex: 2; min-width: 300px;">
+      <div style="flex: 2; min-width: 280px;">
         
         <!-- Canlı Arama Kutusu -->
         <div style="margin-bottom: 24px; position: relative;">
@@ -73,10 +73,9 @@ permalink: /arsiv/
 
     </div>
   </div>
-</div> <!-- Ana kapsayıcı sonu -->
+</div>
 
 <script>
-// Global Durum (State) Yönetimi
 window.archiveState = {
   year: 'all',
   month: 'all',
@@ -86,6 +85,12 @@ window.archiveState = {
 window.monthNames = { "01": "Ocak", "02": "Şubat", "03": "Mart", "04": "Nisan", "05": "Mayıs", "06": "Haziran", "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık" };
 
 document.addEventListener("DOMContentLoaded", function() {
+  // index.md ile uyumlu Favicon Ekleme
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
+  document.head.appendChild(favicon);
+
   const spans = document.querySelectorAll("#raw-data span");
   const posts = [];
   const tree = {};
@@ -105,7 +110,6 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("total-count").innerText = posts.length;
   window.allPosts = posts;
 
-  // Ağaç Yapısını Oluşturma (Ayrıca menülere ID eklendi)
   let treeHTML = "";
   Object.keys(tree).sort().reverse().forEach((year, index) => {
     const isFirst = index === 0;
@@ -121,16 +125,14 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
   document.getElementById("filter-tree").innerHTML = treeHTML;
-  setFilter('all', 'all'); // Başlangıç render'ı
+  setFilter('all', 'all');
 });
 
-// Arama Tetikleyicisi
 window.handleSearch = function(query) {
   window.archiveState.query = query.toLowerCase();
   renderPosts();
 };
 
-// Açılır Kapanır Yıl Butonu
 window.toggleYear = function(year) {
   const ul = document.getElementById('months-' + year);
   const icon = document.getElementById('icon-' + year);
@@ -144,12 +146,10 @@ window.toggleYear = function(year) {
   setFilter(year, 'all');
 };
 
-// Filtre Ayarlayıcı ve Arayüz Güncelleyici
 window.setFilter = function(year, month) {
   window.archiveState.year = year;
   window.archiveState.month = month;
   
-  // Menü Aktif Durum Stilleri
   document.querySelectorAll('.tree-menu-btn').forEach(btn => btn.style.color = '#777');
   document.getElementById('menu-btn-all-all').style.color = '#111';
   document.getElementById('menu-btn-all-all').style.fontWeight = '700';
@@ -158,31 +158,26 @@ window.setFilter = function(year, month) {
     document.getElementById('menu-btn-all-all').style.color = '#555';
     document.getElementById('menu-btn-all-all').style.fontWeight = 'normal';
     
-    // Yıl başlığını veya ay butonunu koyulaştır
     const targetBtn = document.getElementById(`menu-btn-${year}-${month}`);
     if(targetBtn) {
       targetBtn.style.color = '#111';
     }
   }
 
-  // Arama kutusunu sıfırla (Kullanıcı menüye tıklarsa arama temizlenir)
   document.getElementById("search-input").value = "";
   window.archiveState.query = "";
 
   renderPosts();
 };
 
-// Nihai Listeyi Ekrana Çizme (Render)
 window.renderPosts = function() {
   const { year, month, query } = window.archiveState;
   const listContainer = document.getElementById("filtered-posts-list");
   const titleContainer = document.getElementById("current-filter-title");
   const countContainer = document.getElementById("current-result-count");
 
-  // Başlığı Ayarla
   titleContainer.innerText = (year === 'all') ? "Tüm Yazılar" : (month === 'all') ? `${year}` : `${window.monthNames[month]} ${year}`;
 
-  // Filtreleme Algoritması (Yıl + Ay + Arama Sorgusu)
   const filtered = window.allPosts.filter(p => {
     const yearMatch = (year === 'all' || p.year === year);
     const monthMatch = (month === 'all' || p.month === month);
@@ -190,10 +185,8 @@ window.renderPosts = function() {
     return yearMatch && monthMatch && searchMatch;
   });
 
-  // Sonuç Sayısını Ekle
   countContainer.innerText = `(${filtered.length})`;
 
-  // HTML Üretimi
   if (filtered.length === 0) {
     listContainer.innerHTML = "<li style='color: #888; font-style: italic; padding: 20px 0;'>Bu arama kriterlerine uygun bir metin bulunamadı.</li>";
     return;
