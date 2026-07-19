@@ -1,3 +1,7 @@
+---
+layout: null
+---
+
 # Çalakalem
 
 <p style="color: #555; font-size: 1.15rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 3rem; line-height: 1.6;">
