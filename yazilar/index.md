@@ -31,12 +31,12 @@ layout: null
     {% if file.path contains "yazilar/" and file.extname == ".md" and file.name != "index.md" %}
       {% assign date_str = file.name | remove: ".md" %}
       
-      <!-- Zarif Yazı Kartı (Sola Yaslı) -->
       <article class="post-item" style="display: none; margin-bottom: 6rem;">
         
         <header style="margin-bottom: 2rem; text-align: left;">
+          <!-- GitHub Bağlantılı İsim -->
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">
-            Ufuk Demir
+            <a href="https://github.com/ufukdemiir" target="_blank" style="text-decoration: none; color: inherit; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">UFUK DEMİR</a>
           </div>
           <h2 style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.04em;">
             <a href="{{ site.baseurl }}{{ file.path }}" style="text-decoration: none; color: #111; transition: color 0.2s ease;" onmouseover="this.style.color='#555'" onmouseout="this.style.color='#111'">
@@ -61,7 +61,6 @@ layout: null
 
 </div>
 
-<!-- Minimalist Sayfalama Kontrolleri (Ortalandı) -->
 <div id="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
 </div>
 
@@ -95,9 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const btn = document.createElement('button');
     btn.innerHTML = text;
     btn.disabled = disabled;
-    
     let baseStyle = "background: none; border: none; font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.2s ease; padding: 5px 10px; ";
-    
     if (active) {
       btn.style = baseStyle + "color: #111; border-bottom: 2px solid #111;";
     } else if (disabled) {
@@ -107,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function() {
       btn.onmouseover = () => { btn.style.color = '#111'; };
       btn.onmouseout = () => { btn.style.color = '#888'; };
     }
-
     if (!disabled && !active) {
       btn.addEventListener('click', () => {
         currentPage = pageNum;
@@ -121,24 +117,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const container = document.getElementById('pagination-controls');
     container.innerHTML = '';
     if (totalPages <= 1) return;
-
     container.appendChild(createButton('«', 1, currentPage === 1));
     container.appendChild(createButton('‹', currentPage - 1, currentPage === 1));
-
     let startPage = Math.max(1, currentPage - 2);
     let endPage = Math.min(totalPages, currentPage + 2);
-
     if (currentPage <= 2) endPage = Math.min(totalPages, 5);
     if (currentPage >= totalPages - 1) startPage = Math.max(1, totalPages - 4);
-
     for (let i = startPage; i <= endPage; i++) {
       container.appendChild(createButton(i, i, false, i === currentPage));
     }
-
     container.appendChild(createButton('›', currentPage + 1, currentPage === totalPages));
     container.appendChild(createButton('»', totalPages, currentPage === totalPages));
   }
-
   renderPosts();
 });
 </script>
@@ -147,6 +137,5 @@ document.addEventListener("DOMContentLoaded", function() {
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   .post-content p { margin-bottom: 1.5rem; }
 </style>
-
 </body>
 </html>
