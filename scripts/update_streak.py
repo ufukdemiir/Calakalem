@@ -8,7 +8,7 @@ içindeki Günlük Seri badge'lerini günceller.
 import os
 import re
 import urllib.parse
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 YAZILAR_DIR = Path("yazilar")
@@ -29,7 +29,10 @@ def gunluk_dosya_var_mi(gun: date) -> bool:
 
 
 def streak_hesapla() -> int:
-    bugun = date.today()
+    # GitHub sunucusunun saatini Türkiye saatine (UTC+3) uyarlıyoruz
+    turkiye_saati = timezone(timedelta(hours=3))
+    bugun = datetime.now(turkiye_saati).date()
+    
     baslangic = bugun if gunluk_dosya_var_mi(bugun) else bugun - timedelta(days=1)
     streak = 0
     gun = baslangic
@@ -58,7 +61,7 @@ def dosya_guncelle(yol: Path, streak: int) -> bool:
         return False
 
     icerik = yol.read_text(encoding="utf-8")
-    yeni_icerik, degisti_mi = icerikte_guncelle(icerik, streak)
+     yeni_icerik, degisti_mi = icerikte_guncelle(icerik, streak)
 
     if not degisti_mi:
         print(f"{yol}: badge bulunamadı ya da seri zaten güncel ({streak} gün).")
