@@ -2,19 +2,20 @@
 permalink: /arsiv/
 ---
 
-# 📚 Çalakalem Arşivi
+# Çalakalem Arşivi
 
-<p style="color: #6e7781; font-size: 1.1em; margin-bottom: 2.5rem; line-height: 1.6;">
-  Yazılmış tüm metinlerin zaman dilimlerine göre düzenlenmiş istatistiksel arşivi.
+<p style="color: #555; font-size: 1.15rem; font-family: 'Georgia', serif; font-style: italic; margin-bottom: 3rem; line-height: 1.6;">
+  Yazılmış tüm metinlerin zaman dilimlerine göre düzenlenmiş dizini.
 </p>
 
-<div style="margin-bottom: 4rem;">
-  <a href="../yazilar/" style="display: inline-flex; align-items: center; background-color: #ffffff; color: #24292f; border: 1px solid #d0d7de; padding: 10px 20px; border-radius: 8px; font-size: 0.95em; font-weight: 600; text-decoration: none; box-shadow: 0 1px 3px rgba(27,31,36,0.04); transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='#f6f8fa'" onmouseout="this.style.backgroundColor='#ffffff'">
-    <span style="margin-right: 8px;">✍️</span> Yazıları İçerikleriyle Oku (Zaman Akışı)
+<!-- Şık Navigasyon Butonu -->
+<div style="margin-bottom: 4rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <a href="../yazilar/" style="display: inline-block; color: #111; border-bottom: 1px solid #111; padding-bottom: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+    ← Zaman Akışına Dön
   </a>
 </div>
 
-<div id="archive-app" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+<div id="archive-app" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
   
   <div id="raw-data" style="display:none;">
     {% assign sorted_files = site.static_files | sort: 'path' | reverse %}
@@ -27,24 +28,24 @@ permalink: /arsiv/
     {% endfor %}
   </div>
 
-  <div style="display: flex; gap: 50px; align-items: flex-start; flex-wrap: wrap;">
+  <div style="display: flex; gap: 60px; align-items: flex-start; flex-wrap: wrap;">
     
-    <!-- Sol Filtre Menüsü -->
-    <div style="flex: 1; min-width: 260px; background: #fafbfc; padding: 24px; border-radius: 10px; border: 1px solid #e1e4e8;">
-      <h3 style="margin-top:0; font-size:1.1em; color: #24292f; border-bottom:1px solid #e1e4e8; padding-bottom:12px; margin-bottom: 16px;">Dönem Filtresi</h3>
+    <!-- Temiz Tipografik Sol Menü -->
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="margin-top:0; font-size:0.85rem; text-transform: uppercase; letter-spacing: 2px; color: #888; border-bottom: 1px solid #eee; padding-bottom:12px; margin-bottom: 20px;">Dizin</h3>
       <ul style="list-style: none; padding: 0; margin: 0;">
-        <li style="margin-bottom: 12px;">
-          <button onclick="filterPosts('all', 'all')" style="background:none; border:none; color:#0969da; cursor:pointer; font-weight:600; font-size:1em; padding:0; transition: color 0.2s;">
-            ✨ Tüm Zamanlar <span style="color:#6e7781; font-weight:normal;">(<span id="total-count">0</span>)</span>
+        <li style="margin-bottom: 24px;">
+          <button onclick="filterPosts('all', 'all')" style="background:none; border:none; color:#111; cursor:pointer; font-weight:700; font-size:1.1rem; padding:0; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+            Tüm Zamanlar <span style="color:#aaa; font-weight:400; font-size:0.9rem; margin-left: 4px;">(<span id="total-count">0</span>)</span>
           </button>
         </li>
       </ul>
       <div id="filter-tree"></div>
     </div>
 
-    <!-- Sağ Yazı Listesi -->
+    <!-- Zarif Liste Görünümü -->
     <div style="flex: 2; min-width: 300px;">
-      <h3 id="current-filter-title" style="margin-top:0; font-size: 1.6em; font-weight: 700; color: #1F2328; border-bottom: 2px solid #e1e4e8; padding-bottom: 16px; margin-bottom: 24px;">
+      <h3 id="current-filter-title" style="margin-top:0; font-size: 2rem; font-weight: 800; letter-spacing: -0.04em; color: #111; border-bottom: 1px solid #eee; padding-bottom: 16px; margin-bottom: 30px;">
         Tüm Yazılar
       </h3>
       <ul id="filtered-posts-list" style="list-style-type: none; padding-left: 0; margin: 0;">
@@ -57,6 +58,12 @@ permalink: /arsiv/
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // Favicon Ekleme
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
+  document.head.appendChild(favicon);
+
   const spans = document.querySelectorAll("#raw-data span");
   const posts = [];
   const tree = {};
@@ -89,13 +96,13 @@ document.addEventListener("DOMContentLoaded", function() {
   
   sortedYears.forEach(year => {
     treeHTML += `<div style="margin-top: 20px;">`;
-    treeHTML += `<button onclick="filterPosts('${year}', 'all')" style="background:none; border:none; color:#24292f; cursor:pointer; font-weight:600; font-size:1.05em; padding:0; text-align:left; transition: color 0.2s;" onmouseover="this.style.color='#0969da'" onmouseout="this.style.color='#24292f'">📁 ${year} <span style="color:#6e7781; font-weight:normal; font-size:0.9em;">(${tree[year].count})</span></button>`;
-    treeHTML += `<ul style="list-style:none; padding-left:20px; margin:8px 0 0 0;">`;
+    treeHTML += `<button onclick="filterPosts('${year}', 'all')" style="background:none; border:none; color:#111; cursor:pointer; font-weight:700; font-size:1.1rem; padding:0; text-align:left; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">${year} <span style="color:#aaa; font-weight:400; font-size:0.9rem; margin-left: 4px;">(${tree[year].count})</span></button>`;
+    treeHTML += `<ul style="list-style:none; padding-left:12px; border-left: 1px solid #eee; margin:12px 0 0 4px;">`;
     
     const sortedMonths = Object.keys(tree[year].months).sort().reverse();
     sortedMonths.forEach(month => {
       const name = monthNames[month] || month;
-      treeHTML += `<li style="margin-bottom:8px;"><button onclick="filterPosts('${year}', '${month}')" style="background:none; border:none; color:#57606a; cursor:pointer; font-size:0.95em; padding:0; transition: color 0.2s;" onmouseover="this.style.color='#0969da'" onmouseout="this.style.color='#57606a'">📄 ${name} <span style="color:#8c959f; font-size:0.9em;">(${tree[year].months[month]})</span></button></li>`;
+      treeHTML += `<li style="margin-bottom:10px;"><button onclick="filterPosts('${year}', '${month}')" style="background:none; border:none; color:#555; cursor:pointer; font-size:0.95rem; padding:0; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#555'">${name} <span style="color:#ccc; font-size:0.85rem; margin-left: 4px;">(${tree[year].months[month]})</span></button></li>`;
     });
     
     treeHTML += `</ul></div>`;
@@ -115,8 +122,8 @@ function filterPosts(year, month) {
   };
 
   if (year === 'all') titleContainer.innerText = "Tüm Yazılar";
-  else if (month === 'all') titleContainer.innerText = `${year} Yılı Yazıları`;
-  else titleContainer.innerText = `${monthNames[month]} ${year} Yazıları`;
+  else if (month === 'all') titleContainer.innerText = `${year}`;
+  else titleContainer.innerText = `${monthNames[month]} ${year}`;
 
   const filtered = window.allPosts.filter(post => {
     const yearMatch = (year === 'all' || post.year === year);
@@ -125,16 +132,15 @@ function filterPosts(year, month) {
   });
 
   if (filtered.length === 0) {
-    listContainer.innerHTML = "<li style='color: #6e7781; padding: 20px 0;'>Bu dönemde yazılmış yazı bulunamadı.</li>";
+    listContainer.innerHTML = "<li style='color: #888; font-style: italic; padding: 20px 0;'>Bu dönemde yazılmış bir metin bulunmuyor.</li>";
     return;
   }
 
-  // İstediğiniz gibi takvim tarihi yerine Yazar Ufuk Demir kısmı ile şık liste görünümü
   listContainer.innerHTML = filtered.map(post => `
-    <li style="margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #eaecef; display: flex; align-items: center; gap: 15px;">
-      <span style="color: #6e7781; font-size: 0.9em; width: 110px; flex-shrink: 0;">✍️ Ufuk Demir</span>
-      <a href="${post.url}" style="text-decoration: none; color: #0969da; font-weight: 600; font-size: 1.05em; transition: color 0.2s;" onmouseover="this.style.color='#0550ae'" onmouseout="this.style.color='#0969da'">
-        ${post.date} Tarihli Çalakalem Metni
+    <li style="margin-bottom: 20px; display: flex; align-items: baseline; gap: 20px;">
+      <span style="color: #aaa; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; width: 100px; flex-shrink: 0;">Ufuk Demir</span>
+      <a href="${post.url}" style="text-decoration: none; color: #111; font-weight: 600; font-size: 1.15rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">
+        ${post.date}
       </a>
     </li>
   `).join("");
