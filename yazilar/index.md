@@ -20,8 +20,12 @@ layout: null
   Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış serbest metinler.
 </p>
 
-<!-- Şık Navigasyon Butonu -->
-<div style="margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<!-- Şık Navigasyon Alanı -->
+<div style="margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; gap: 12px; align-items: center;">
+  <a href="../" style="display: inline-block; color: #111; border-bottom: 1px solid #111; padding-bottom: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+    ← Ana Sayfa
+  </a>
+  <span style="color: #ccc; font-size: 0.9rem;">|</span>
   <a href="../arsiv/" style="display: inline-block; color: #111; border-bottom: 1px solid #111; padding-bottom: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; text-decoration: none; transition: opacity 0.2s ease;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
     Arşivi Görüntüle →
   </a>
