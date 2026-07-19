@@ -24,7 +24,7 @@ permalink: /arsiv/
       {% if file.path contains "yazilar/" and file.extname == ".md" and file.name != "index.md" %}
         {% assign date_str = file.name | remove: ".md" %}
         {% assign parts = date_str | split: "-" %}
-        <span data-url="{{ file.path | replace: '../', '/' }}" data-date="{{ date_str }}" data-year="{{ parts[0] }}" data-month="{{ parts[1] }}"></span>
+        <span data-url="{{ site.baseurl }}{{ file.path }}" data-date="{{ date_str }}" data-year="{{ parts[0] }}" data-month="{{ parts[1] }}"></span>
       {% endif %}
     {% endfor %}
   </div>
@@ -50,13 +50,20 @@ permalink: /arsiv/
         Tüm Yazılar
       </h3>
       <ul id="filtered-posts-list" style="list-style-type: none; padding-left: 0; margin: 0;">
+        <!-- JS ile dolacak -->
       </ul>
     </div>
+
   </div>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  const favicon = document.createElement('link');
+  favicon.rel = 'icon';
+  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
+  document.head.appendChild(favicon);
+
   const spans = document.querySelectorAll("#raw-data span");
   const posts = [];
   const tree = {};
@@ -66,9 +73,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const month = span.getAttribute("data-month");
     const date = span.getAttribute("data-date");
     const url = span.getAttribute("data-url");
+    
     posts.push({ year, month, date, url });
+
     if (!tree[year]) tree[year] = { count: 0, months: {} };
     if (!tree[year].months[month]) tree[year].months[month] = 0;
+    
     tree[year].count++;
     tree[year].months[month]++;
   });
@@ -76,21 +86,32 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("total-count").innerText = posts.length;
   window.allPosts = posts;
 
-  const monthNames = { "01": "Ocak", "02": "Şubat", "03": "Mart", "04": "Nisan", "05": "Mayıs", "06": "Haziran", "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık" };
+  const monthNames = {
+    "01": "Ocak", "02": "Şubat", "03": "Mart", "04": "Nisan", "05": "Mayıs", "06": "Haziran",
+    "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık"
+  };
 
   let treeHTML = "";
-  Object.keys(tree).sort().reverse().forEach((year, index) => {
+  const sortedYears = Object.keys(tree).sort().reverse();
+  
+  sortedYears.forEach((year, index) => {
     const isFirst = index === 0;
-    treeHTML += `<div style="margin-top: 20px;">
-      <button onclick="toggleYear('${year}')" style="background:none; border:none; color:#111; cursor:pointer; font-weight:700; font-size:1.1rem; padding:0; text-align:left; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
-        <span id="icon-${year}" style="display:inline-block; width:18px; font-size:0.9em; color:#888;">${isFirst ? '▾' : '▸'}</span>${year} <span style="color:#aaa; font-weight:400; font-size:0.9rem; margin-left: 4px;">(${tree[year].count})</span>
-      </button>
-      <ul id="months-${year}" style="list-style:none; padding-left:18px; border-left: 1px solid #eee; margin:12px 0 0 7px; display: ${isFirst ? 'block' : 'none'};">`;
-    Object.keys(tree[year].months).sort().reverse().forEach(month => {
-      treeHTML += `<li style="margin-bottom:10px;"><button onclick="filterPosts('${year}', '${month}')" style="background:none; border:none; color:#555; cursor:pointer; font-size:0.95rem; padding:0; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#555'">${monthNames[month]} <span style="color:#ccc; font-size:0.85rem; margin-left: 4px;">(${tree[year].months[month]})</span></button></li>`;
+    const displayStyle = isFirst ? 'block' : 'none';
+    const icon = isFirst ? '▾' : '▸';
+
+    treeHTML += `<div style="margin-top: 20px;">`;
+    treeHTML += `<button onclick="toggleYear('${year}')" style="background:none; border:none; color:#111; cursor:pointer; font-weight:700; font-size:1.1rem; padding:0; text-align:left; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'"><span id="icon-${year}" style="display:inline-block; width:18px; font-size:0.9em; color:#888;">${icon}</span>${year} <span style="color:#aaa; font-weight:400; font-size:0.9rem; margin-left: 4px;">(${tree[year].count})</span></button>`;
+    treeHTML += `<ul id="months-${year}" style="list-style:none; padding-left:18px; border-left: 1px solid #eee; margin:12px 0 0 7px; display: ${displayStyle};">`;
+    
+    const sortedMonths = Object.keys(tree[year].months).sort().reverse();
+    sortedMonths.forEach(month => {
+      const name = monthNames[month] || month;
+      treeHTML += `<li style="margin-bottom:10px;"><button onclick="filterPosts('${year}', '${month}')" style="background:none; border:none; color:#555; cursor:pointer; font-size:0.95rem; padding:0; transition: color 0.2s;" onmouseover="this.style.color='#111'" onmouseout="this.style.color='#555'">${name} <span style="color:#ccc; font-size:0.85rem; margin-left: 4px;">(${tree[year].months[month]})</span></button></li>`;
     });
+    
     treeHTML += `</ul></div>`;
   });
+  
   document.getElementById("filter-tree").innerHTML = treeHTML;
   filterPosts('all', 'all');
 });
@@ -98,25 +119,47 @@ document.addEventListener("DOMContentLoaded", function() {
 window.toggleYear = function(year) {
   const ul = document.getElementById('months-' + year);
   const icon = document.getElementById('icon-' + year);
-  ul.style.display = (ul.style.display === 'none') ? 'block' : 'none';
-  icon.innerText = (ul.style.display === 'block') ? '▾' : '▸';
+  if (ul.style.display === 'none') {
+    ul.style.display = 'block';
+    icon.innerText = '▾';
+  } else {
+    ul.style.display = 'none';
+    icon.innerText = '▸';
+  }
   filterPosts(year, 'all');
 };
 
 window.filterPosts = function(year, month) {
   const listContainer = document.getElementById("filtered-posts-list");
   const titleContainer = document.getElementById("current-filter-title");
-  const monthNames = { "01": "Ocak", "02": "Şubat", "03": "Mart", "04": "Nisan", "05": "Mayıs", "06": "Haziran", "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık" };
+  
+  const monthNames = {
+    "01": "Ocak", "02": "Şubat", "03": "Mart", "04": "Nisan", "05": "Mayıs", "06": "Haziran",
+    "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık"
+  };
 
-  titleContainer.innerText = (year === 'all') ? "Tüm Yazılar" : (month === 'all') ? `${year}` : `${monthNames[month]} ${year}`;
-  const filtered = window.allPosts.filter(p => (year === 'all' || p.year === year) && (month === 'all' || p.month === month));
+  if (year === 'all') titleContainer.innerText = "Tüm Yazılar";
+  else if (month === 'all') titleContainer.innerText = `${year}`;
+  else titleContainer.innerText = `${monthNames[month]} ${year}`;
 
-  listContainer.innerHTML = filtered.length === 0 ? "<li style='color: #888; font-style: italic; padding: 20px 0;'>Bu dönemde yazı bulunmuyor.</li>" : filtered.map(post => `
+  const filtered = window.allPosts.filter(post => {
+    const yearMatch = (year === 'all' || post.year === year);
+    const monthMatch = (month === 'all' || post.month === month);
+    return yearMatch && monthMatch;
+  });
+
+  if (filtered.length === 0) {
+    listContainer.innerHTML = "<li style='color: #888; font-style: italic; padding: 20px 0;'>Bu dönemde yazılmış bir metin bulunmuyor.</li>";
+    return;
+  }
+
+  listContainer.innerHTML = filtered.map(post => `
     <li style="margin-bottom: 20px; display: flex; align-items: baseline; gap: 20px;">
       <a href="https://github.com/ufukdemiir" target="_blank" style="text-decoration: none; color: #aaa; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; width: 100px; flex-shrink: 0; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">UFUK DEMİR</a>
       <a href="${post.url}" style="text-decoration: none; color: #111; font-weight: 600; font-size: 1.15rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'">
         ${post.date}
       </a>
-    </li>`).join("");
+    </li>
+  `).join("");
 };
 </script>
