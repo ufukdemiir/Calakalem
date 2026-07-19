@@ -100,6 +100,7 @@ window.toggleYear = function(year) {
   const icon = document.getElementById('icon-' + year);
   ul.style.display = (ul.style.display === 'none') ? 'block' : 'none';
   icon.innerText = (ul.style.display === 'block') ? '▾' : '▸';
+  filterPosts(year, 'all');
 };
 
 window.filterPosts = function(year, month) {
