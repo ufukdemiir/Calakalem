@@ -18,10 +18,10 @@
     {% if file.path contains "yazilar/" and file.extname == ".md" and file.name != "index.md" %}
       {% assign date_str = file.name | remove: ".md" %}
       
-      <!-- Zarif Yazı Kartı -->
+      <!-- Zarif Yazı Kartı (Sola Yaslı) -->
       <article class="post-item" style="display: none; margin-bottom: 6rem;">
         
-        <header style="margin-bottom: 2rem; text-align: center;">
+        <header style="margin-bottom: 2rem; text-align: left;">
           <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;">
             Ufuk Demir
           </div>
@@ -37,7 +37,7 @@
           {{ file_content | markdownify }}
         </div>
 
-        <div style="text-align: center; margin-top: 4rem;">
+        <div style="text-align: left; margin-top: 4rem;">
           <span style="display: inline-block; width: 40px; height: 1px; background-color: #ddd;"></span>
         </div>
         
@@ -49,18 +49,16 @@
 </div>
 
 <!-- Minimalist Sayfalama Kontrolleri -->
-<div id="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<div id="pagination-controls" style="display: flex; justify-content: flex-start; align-items: center; gap: 12px; margin-top: 2rem; margin-bottom: 5rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Favicon Ekleme
   const favicon = document.createElement('link');
   favicon.rel = 'icon';
   favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
   document.head.appendChild(favicon);
 
-  // Sayfalama Mantığı
   const posts = document.querySelectorAll('.post-item');
   const postsPerPage = 10;
   const totalPages = Math.ceil(posts.length / postsPerPage);
