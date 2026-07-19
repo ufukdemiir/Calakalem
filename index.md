@@ -32,7 +32,7 @@ title: Çalakalem
   <hr style="border: none; border-top: 1px solid #eee; margin: 4rem 0;">
 
   <section style="margin-bottom: 3rem;">
-    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Bu Alan Neden Oluşturuldu?</h2>
+    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Bu Depo Neden Oluşturuldu?</h2>
     <p style="font-family: 'Georgia', serif; font-size: 1.1rem; line-height: 1.8; color: #333;">
       <strong>Çalakalem</strong>, edebî şaheserler üretmek ya da kusursuz cümleler kurmak için oluşturulmadı. Burası; yazı kabiliyetimi geliştirmek ve özgürce karalayabilmek için oynadığım <em>dijital bir kum havuzu</em>, sözcüklerin fütursuzca arz-ı endam ettiği bir <em>eskiz defteri</em>.
     </p>
