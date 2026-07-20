@@ -41,7 +41,7 @@ title: Çalakalem | Arşiv
         {% if file.path contains "yazilar/" and file.extname == ".md" and file.name != "index.md" %}
           {% assign date_str = file.name | remove: ".md" %}
           {% assign parts = date_str | split: "-" %}
-          <span data-url="{{ file.path | replace: '../', '/' }}" data-date="{{ date_str }}" data-year="{{ parts[0] }}" data-month="{{ parts[1] }}"></span>
+          <span data-url="{{ file.path | relative_url }}" data-date="{{ date_str }}" data-year="{{ parts[0] }}" data-month="{{ parts[1] }}"></span>
         {% endif %}
       {% endfor %}
     </div>
