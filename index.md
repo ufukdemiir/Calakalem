@@ -19,7 +19,7 @@ title: Çalakalem
     <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 3rem; flex-wrap: wrap;">
       <img src="https://img.shields.io/badge/Durum-Aktif-brightgreen?style=flat-square" alt="Durum" style="border-radius: 4px;">
       <img src="https://img.shields.io/badge/G%C3%BCnl%C3%BCk_Pratik-10_Dakika-blue?style=flat-square" alt="Pratik" style="border-radius: 4px;">
-      <img src="https://img.shields.io/badge/Günlük_Seri-18%20g%C3%BCn-orange?style=flat-square" alt="Seri" style="border-radius: 4px;">
+      <img src="https://img.shields.io/badge/Günlük_Seri-19%20g%C3%BCn-orange?style=flat-square" alt="Seri" style="border-radius: 4px;">
     </div>
 
     <!-- Site Navigasyonu -->
