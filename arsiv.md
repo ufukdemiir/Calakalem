@@ -4,9 +4,15 @@ permalink: /arsiv/
 title: Çalakalem | Arşiv
 ---
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Çalakalem projesinde yazılmış tüm serbest metinlerin zaman dilimlerine ve aylara göre düzenlenmiş dizini.">
+  <link rel="canonical" href="https://ufukdemiir.github.io/Calakalem/arsiv/">
+  <meta property="og:title" content="Çalakalem | Arşiv">
+  <meta property="og:description" content="Yazılmış tüm metinlerin zaman dilimlerine göre düzenlenmiş dizini.">
+  <meta property="og:url" content="https://ufukdemiir.github.io/Calakalem/arsiv/">
+  <meta property="og:type" content="website">
 </head>
 
 <!-- Ana kapsayıcı (index.md ile birebir aynı genişlik, ortalama ve font yapısı) -->
