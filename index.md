@@ -5,6 +5,12 @@ title: Çalakalem
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
+  <meta name="description" content="Kusursuzluk baskısından uzak, alelacele ve gelişigüzel: Her gün 10 dakikalık çalakalem yazı egzersizi arşivi.">
+<link rel="canonical" href="https://ufukdemiir.github.io/Calakalem/">
+<meta property="og:title" content="Çalakalem · Günlük Yazı Egzersizleri">
+<meta property="og:description" content="Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazı pratikleri.">
+<meta property="og:url" content="https://ufukdemiir.github.io/Calakalem/">
+<meta property="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
