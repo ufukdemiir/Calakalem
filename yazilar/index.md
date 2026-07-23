@@ -75,9 +75,10 @@ layout: null
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  // ✏️ Emojisi ile güncellenmiş Favicon Ekleme
   const favicon = document.createElement('link');
   favicon.rel = 'icon';
-  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
+  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">✏️</text></svg>';
   document.head.appendChild(favicon);
 
   const posts = document.querySelectorAll('.post-item');
