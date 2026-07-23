@@ -95,10 +95,10 @@ window.archiveState = {
 window.monthNames = { "01": "Ocak", "02": "Şubat", "03": "Mart", "04": "Nisan", "05": "Mayıs", "06": "Haziran", "07": "Temmuz", "08": "Ağustos", "09": "Eylül", "10": "Ekim", "11": "Kasım", "12": "Aralık" };
 
 document.addEventListener("DOMContentLoaded", function() {
-  // index.md ile uyumlu Favicon Ekleme
+  // ✏️ Emojisi ile güncellenmiş Favicon Ekleme
   const favicon = document.createElement('link');
   favicon.rel = 'icon';
-  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💠</text></svg>';
+  favicon.href = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">✏️</text></svg>';
   document.head.appendChild(favicon);
 
   const spans = document.querySelectorAll("#raw-data span");
