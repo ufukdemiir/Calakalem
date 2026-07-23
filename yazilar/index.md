@@ -6,6 +6,12 @@ layout: null
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Çalakalem | Yazılar</title>
+<meta name="description" content="Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış günlük serbest metinler ve yazı egzersizleri akışı.">
+<link rel="canonical" href="https://ufukdemiir.github.io/Calakalem/yazilar/">
+<meta property="og:title" content="Çalakalem | Yazılar">
+<meta property="og:description" content="Kusursuzluk baskısından uzak, alelacele ve gelişigüzel yazılmış serbest metinler.">
+<meta property="og:url" content="https://ufukdemiir.github.io/Calakalem/yazilar/">
+<meta property="og:type" content="website">
 </head>
 <body>
 
